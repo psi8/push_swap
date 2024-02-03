@@ -6,14 +6,17 @@
 #    By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 19:59:08 by psitkin           #+#    #+#              #
-#    Updated: 2024/02/02 20:25:47 by psitkin          ###   ########.fr        #
+#    Updated: 2024/02/03 18:55:31 by psitkin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 LIBFT = ./libft_push_swap
 CFLAGS = -Wall -Wextra -Werror
-SRC = push_swap.c
+SRC = push_swap.c \
+		swap.c \
+		stack_utils.c \
+		push.c 
 
 OBJ = $(SRC:%.c=%.o)
 
