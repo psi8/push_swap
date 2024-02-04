@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:38:53 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/03 23:31:50 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/04 23:13:18 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ t_stack		*create_stack(void);
 t_push_swap	create_push_swap(void);
 void		delete_stack(t_stack **s);
 void		print_stack(t_stack *s);
+void		push(t_stack *s, int data);
+t_node		*pop(t_stack *s);
 
 void		sa(t_push_swap *stacks);
 void		sb(t_push_swap *stacks);

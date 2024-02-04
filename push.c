@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:47:43 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/03 18:57:53 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/04 23:02:37 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	move_from_stack (t_stack *from, t_stack *to)
 
 void	pa(t_push_swap *stacks)
 {
-	move_from_stack(stacks->b, stack->a);
+	move_from_stack(stacks->b, stacks->a);
 }
 
 void	pb(t_push_swap *stacks)

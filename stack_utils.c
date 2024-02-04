@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:45:05 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/02 23:46:12 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/04 23:14:40 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ t_node	*create_elem(int data)
 	t_node	*res;
 
 	res = malloc(sizeof(t_node));
-	ft_putstr_fd("creating\n", 1);
 	if (!res)
 		return (NULL);
-	ft_putstr_fd("created\n", 1);
 	res->next = NULL;
+	res->rank = -1;
 	res->data = data;
 	return (res);
 }
@@ -34,6 +33,7 @@ t_stack	*create_stack(void)
 	if (!res)
 		return (NULL);
 	res->head = NULL;
+	res->size = 0;
 	return (res);
 }
 
