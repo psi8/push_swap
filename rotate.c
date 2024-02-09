@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 18:47:43 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/09 21:22:28 by psitkin          ###   ########.fr       */
+/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
+/*   Updated: 2024/02/09 23:02:50 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_from_stack (t_stack *from, t_stack *to)
+void	rotate(t_stack *s)
 {
-	t_node	*tmp;
-	
-	tmp = pop(from);
-	if (!tmp)
+	if (s->size < 2)
 		return ;
-	push(to, tmp);
+	unshift(s, pop(s));
 }
 
-void	pa(t_push_swap *stacks)
+void	ra(t_push_swap *stack)
 {
-	move_from_stack(stacks->b, stacks->a);
-	write(1, "pa\n", 3);
+	rotate(stacks->a);
+	write (1, "ra\n", 3);
 }
 
-void	pb(t_push_swap *stacks)
+void	rb(t_push_swap	*stacks)
 {
-	move_from_stack(stacks->a, stacks->b);
-	write(1, "pb\n", 3);
+	rotate(stacks->b);
+	write(1, "rb\n", 3);
+}
+
+void	rr(t_push_swap	*stacks)
+{
+	rotate(stacks->a);
+	rotate(stacks->b);
+	write(1, "rr\n", 3);
 }

@@ -6,48 +6,21 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:45:05 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/04 23:14:40 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/09 23:23:26 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_elem(int data)
+void	push(t_stack *s, t_node *new)
 {
-	t_node	*res;
-
-	res = malloc(sizeof(t_node));
-	if (!res)
-		return (NULL);
-	res->next = NULL;
-	res->rank = -1;
-	res->data = data;
-	return (res);
-}
-
-t_stack	*create_stack(void)
-{
-	t_stack	*res;
-
-	res = malloc(sizeof(t_stack));
-	if (!res)
-		return (NULL);
-	res->head = NULL;
-	res->size = 0;
-	return (res);
-}
-
-
-
-void	push(t_stack *s, int data)
-{
-	t_node	*tmp;
-
-	tmp = create_elem(data);
-	if (!tmp)
-		return ;
-	tmp->next = s->head;
-	s->head = tmp;
+	if (!new)
+		return;
+	new->next = s->head;
+	if (!s->head)
+		s->tail = new;
+	s->head = new;
+	s->size++;
 }
 
 t_node	*pop(t_stack *s)
@@ -57,40 +30,43 @@ t_node	*pop(t_stack *s)
 	if (s! || !s->head)
 		return (NULL);
 	res = s->head;
-	res->next = NULL;
 	s->head = s->head->next;
+	if (!s->head)
+		s->tail = NULL;
+	res->next = NULL;
+	s->size--;
 	return (res);
 }
 
-void	clean_stack(t_stack *s)
+void	unshift(t_stack *s, t_node *new)
 {
-	t_node	*tmp;
-
-	while (s->head)
-	{
-		tmp = s->head;
-		s->head = s->head->next;
-		free(tmp);
-	}
+	if (!s || !new)
+		return ;
+	if (!s->head)
+		s->head = new;
+	s->tail = new;
+	s->size++;
 }
 
-void	delete_stack(t_stack **s)
-{
-	clean_stack(*s);
-	free(*s);
-	s = NULL;
-}
-
-void	print_stack(t_stack *s)
+t_node *shift(t_stack *s)
 {
 	t_node	*tmp;
-
+	t_node	*res;
+	
+	if (!s || !s->head)
+		return (NULL);
+	s->size--;
 	tmp = s->head;
-	while (tmp)
+	if (s->size == 1)
 	{
-		ft_putnbr_fd(tmp->data, 1);
-		ft_putstr_fd("->", 1);
-		tmp = tmp->next;
+		s->head = NULL;
+		s->tail = NULL;
+		return (tmp);
 	}
-	ft_putchar_fd('END\n');
+	while(tmp->next->next)
+		tmp = tmp->next;
+	res = tmp->next;
+	tmp->next = NULL;
+	s->tail = tmp;
+	return (res);
 }
