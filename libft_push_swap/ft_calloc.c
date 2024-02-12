@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:08 by psitkin          ###   ########.fr       */
+/*   Created: 2023/11/10 21:39:50 by psitkin           #+#    #+#             */
+/*   Updated: 2023/11/16 00:52:59 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rotate(t_stack *s)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (s->size < 2)
-		return ;
-	unshift(s, pop(s));
-}
+	void	*p;
 
-void	ra(t_push_swap *stacks)
-{
-	rotate(stacks->a);
-	write (1, "ra\n", 3);
-}
-
-void	rb(t_push_swap	*stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_push_swap	*stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	if (count && size > SIZE_MAX / count)
+		return (0);
+	if (size && count > SIZE_MAX / size)
+		return (0);
+	p = malloc(count * size);
+	if (!p)
+		return (0);
+	ft_bzero(p, count * size);
+	return (p);
 }

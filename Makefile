@@ -6,19 +6,24 @@
 #    By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 19:59:08 by psitkin           #+#    #+#              #
-#    Updated: 2024/02/03 18:55:31 by psitkin          ###   ########.fr        #
+#    Updated: 2024/02/12 22:43:30 by psitkin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CC = gcc
 NAME = push_swap
 LIBFT = ./libft_push_swap
 CFLAGS = -Wall -Wextra -Werror
 SRC = push_swap.c \
 		swap.c \
 		stack_utils.c \
-		push.c 
+		push.c \
+		rotate.c \
+		print.c \
+		constructors.c \
+		
 
-OBJ = $(SRC:%.c=%.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(LIBFT)/libft.a $(NAME)
 

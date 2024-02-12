@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:08 by psitkin          ###   ########.fr       */
+/*   Created: 2023/11/12 23:56:32 by psitkin           #+#    #+#             */
+/*   Updated: 2023/11/16 00:56:50 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rotate(t_stack *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (s->size < 2)
-		return ;
-	unshift(s, pop(s));
-}
+	int		s1_len;
+	int		s2_len;
+	char	*joinstr;
 
-void	ra(t_push_swap *stacks)
-{
-	rotate(stacks->a);
-	write (1, "ra\n", 3);
-}
-
-void	rb(t_push_swap	*stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_push_swap	*stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	joinstr = malloc(s1_len + s2_len + 1);
+	if (!joinstr)
+		return (0);
+	ft_memmove(joinstr, s1, s1_len);
+	ft_memmove(joinstr + s1_len, s2, s2_len);
+	joinstr[s1_len + s2_len] = 0;
+	return (joinstr);
 }

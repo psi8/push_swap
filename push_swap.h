@@ -6,13 +6,12 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:38:53 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/09 22:57:54 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/12 22:39:42 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
 
 typedef struct s_node
 {
@@ -38,7 +37,7 @@ t_node		*create_elem(int data);
 t_stack		*create_stack(void);
 t_push_swap	*create_push_swap(void);
 
-void		push(t_stack *s, int data);
+void		push(t_stack *s, t_node *new);
 t_node		*pop(t_stack *s);
 void		unshift(t_stack *s, t_node *new);
 t_node		*shift(t_stack *s);
@@ -55,6 +54,11 @@ void		ss(t_push_swap *stacks);
 
 void		pa(t_push_swap *stacks);
 void		pb(t_push_swap *stacks);
+
+int			parse_item(const char *item, t_push_swap *stacks);
+void		delete_split(char	**splits);
+long long	ft_simple_atoi(const char *str);
+int			parse_input(int ac, char **av, t_push_swap *stacks);
 
 #define	INT_MIN	-2147483648
 #define	INT_MAX	2147483647

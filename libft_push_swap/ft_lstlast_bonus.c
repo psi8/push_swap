@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:08 by psitkin          ###   ########.fr       */
+/*   Created: 2023/11/18 16:25:36 by psitkin           #+#    #+#             */
+/*   Updated: 2023/11/18 16:34:41 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rotate(t_stack *s)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (s->size < 2)
-		return ;
-	unshift(s, pop(s));
-}
-
-void	ra(t_push_swap *stacks)
-{
-	rotate(stacks->a);
-	write (1, "ra\n", 3);
-}
-
-void	rb(t_push_swap	*stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_push_swap	*stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	if (!lst)
+		return (NULL);
+	while (lst -> next)
+		lst = lst -> next;
+	return (lst);
 }

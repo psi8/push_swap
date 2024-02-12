@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:08 by psitkin          ###   ########.fr       */
+/*   Created: 2023/10/25 19:31:46 by psitkin           #+#    #+#             */
+/*   Updated: 2023/11/19 19:54:34 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	rotate(t_stack *s)
+int	ft_isascii(int c)
 {
-	if (s->size < 2)
-		return ;
-	unshift(s, pop(s));
-}
-
-void	ra(t_push_swap *stacks)
-{
-	rotate(stacks->a);
-	write (1, "ra\n", 3);
-}
-
-void	rb(t_push_swap	*stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_push_swap	*stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	if ((0 <= c) && (127 >= c))
+		return (1);
+	return (0);
 }

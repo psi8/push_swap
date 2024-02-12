@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:45:05 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/09 23:23:26 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/12 20:07:51 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push(t_stack *s, t_node *new)
 {
 	if (!new)
-		return;
+		return ;
 	new->next = s->head;
 	if (!s->head)
 		s->tail = new;
@@ -27,7 +27,7 @@ t_node	*pop(t_stack *s)
 {
 	t_node	*res;
 
-	if (s! || !s->head)
+	if (!s || !s->head)
 		return (NULL);
 	res = s->head;
 	s->head = s->head->next;

@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:08 by psitkin          ###   ########.fr       */
+/*   Created: 2023/10/29 19:15:49 by psitkin           #+#    #+#             */
+/*   Updated: 2023/11/19 19:56:34 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rotate(t_stack *s)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (s->size < 2)
-		return ;
-	unshift(s, pop(s));
-}
+	size_t	i;
 
-void	ra(t_push_swap *stacks)
-{
-	rotate(stacks->a);
-	write (1, "ra\n", 3);
-}
-
-void	rb(t_push_swap	*stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_push_swap	*stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	i = 0;
+	while (i < n && (s1[i] || s2[i]))
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+	}
+	return (0);
 }

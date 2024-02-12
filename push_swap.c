@@ -6,13 +6,13 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:38:34 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/09 22:50:59 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/12 19:12:18 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	delete_split(char	**splits);
+void	delete_split(char	**splits)
 {
 	int	i;
 

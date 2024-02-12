@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 22:58:37 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:22:08 by psitkin          ###   ########.fr       */
+/*   Created: 2023/11/09 18:57:11 by psitkin           #+#    #+#             */
+/*   Updated: 2023/11/16 00:53:35 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rotate(t_stack *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (s->size < 2)
-		return ;
-	unshift(s, pop(s));
-}
+	size_t	i;
+	char	*c_s1;
+	char	*c_s2;
 
-void	ra(t_push_swap *stacks)
-{
-	rotate(stacks->a);
-	write (1, "ra\n", 3);
-}
-
-void	rb(t_push_swap	*stacks)
-{
-	rotate(stacks->b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_push_swap	*stacks)
-{
-	rotate(stacks->a);
-	rotate(stacks->b);
-	write(1, "rr\n", 3);
+	c_s1 = (char *)s1;
+	c_s2 = (char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (c_s1[i] != c_s2[i])
+			return ((unsigned char)c_s1[i] - (unsigned char)c_s2[i]);
+		i++;
+	}
+	return (0);
 }
