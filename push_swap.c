@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:38:34 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 19:12:18 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/13 21:53:51 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int	parse_input(int ac, char **av, t_push_swap *stacks)
 	while (i < ac)
 	{
 		split = ft_split(av[i], ' ');
-		if (!split)
+		if (!split || !split[0])
 			return (1);
 		j = 0;
-		while (split[j])
+		while (split[j] )
 		{
 			if (parse_item(split[j], stacks))
 			{

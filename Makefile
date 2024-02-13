@@ -6,11 +6,11 @@
 #    By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/28 19:59:08 by psitkin           #+#    #+#              #
-#    Updated: 2024/02/12 22:43:30 by psitkin          ###   ########.fr        #
+#    Updated: 2024/02/13 21:11:42 by psitkin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 NAME = push_swap
 LIBFT = ./libft_push_swap
 CFLAGS = -Wall -Wextra -Werror
@@ -19,8 +19,10 @@ SRC = push_swap.c \
 		stack_utils.c \
 		push.c \
 		rotate.c \
+		reverse_rotate.c \
 		print.c \
 		constructors.c \
+		deconstructors.c \
 		
 
 OBJ = $(SRC:.c=.o)

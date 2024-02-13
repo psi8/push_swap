@@ -6,7 +6,7 @@
 /*   By: psitkin <psitkin@hive.student.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 19:38:53 by psitkin           #+#    #+#             */
-/*   Updated: 2024/02/12 22:39:42 by psitkin          ###   ########.fr       */
+/*   Updated: 2024/02/13 21:11:00 by psitkin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ void		ss(t_push_swap *stacks);
 
 void		pa(t_push_swap *stacks);
 void		pb(t_push_swap *stacks);
+
+void		ra(t_push_swap	*stacks);
+void		rb(t_push_swap	*stacks);
+void		rr(t_push_swap	*stacks);
+
+void		rra(t_push_swap	*stacks);
+void		rrb(t_push_swap	*stacks);
+void		rrr(t_push_swap	*stacks);
+
+
 
 int			parse_item(const char *item, t_push_swap *stacks);
 void		delete_split(char	**splits);
